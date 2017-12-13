@@ -11,9 +11,7 @@ python3-dev \
 python3-pip \
 git 
 
-RUN pip3 install --upgrade virtualenv
-
-RUN git clone 'https://github.com/TD22057/insteon-mqtt.git' /opt/insteon-mqtt
+RUN git clone -b dev --single-branch 'https://github.com/TD22057/insteon-mqtt.git' /opt/insteon-mqtt
 
 #RUN cd /opt/insteon-mqtt 
 RUN pip install /opt/insteon-mqtt
