@@ -9,7 +9,8 @@ RUN apt-get update && \
 apt-get install -y \
 python3-dev \
 python3-pip \
-git 
+git && \ 
+apt-get clean
 
 RUN git clone -b dev --single-branch 'https://github.com/TD22057/insteon-mqtt.git' /opt/insteon-mqtt
 
