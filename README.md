@@ -1,8 +1,8 @@
 # docker-insteon-mqtt
 
-Get the insteon-mqtt container:
+# Get the insteon-mqtt container:
 docker pull larizzo/insteon-mqtt
 
-docker run --device=/dev/ttyUSB0 -it docker.io/larizzo/insteon-mqtt
+# Docker run command, assumes your USB PLM is on /dev/ttyUSB0 and your local config folder is /mnt/user/appdata/
+docker run -d --name='insteon-mqtt' --net='bridge' -v '/mnt/user/appdata/insteon-mqtt/':'/config':'rw' --device=/dev/ttyUSB0 larizzo/insteon-mqtt
 
-copy /config/insteon-mqtt.yaml.default to /config/insteon-mqtt.yaml and modify to suit needs.
