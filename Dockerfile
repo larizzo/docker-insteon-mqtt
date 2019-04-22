@@ -4,8 +4,8 @@ VOLUME /config
 
 ENV LANG C.UTF-8
 
-RUN apk --no-cache add python3-dev git \ 
-    git clone 'https://github.com/TD22057/insteon-mqtt.git' /opt/insteon-mqtt \
+RUN apk --no-cache add python3-dev git && \ 
+    git clone 'https://github.com/TD22057/insteon-mqtt.git' /opt/insteon-mqtt && \
     pip install /opt/insteon-mqtt
 
 COPY entrypoint.sh entrypoint.sh
