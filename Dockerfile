@@ -2,16 +2,11 @@ FROM homeassistant/amd64-homeassistant-base
 
 VOLUME /config
 
-RUN apt-get update && \
-apt-get install -y \
-python3-dev \
-python3-pip \
-git && \ 
-apt-get clean
+ENV LANG C.UTF-8
 
-RUN git clone --single-branch --branch dev 'https://github.com/TD22057/insteon-mqtt.git' /opt/insteon-mqtt
-
-RUN pip install /opt/insteon-mqtt
+RUN apk --no-cache add python3-dev git && \ 
+    git clone --single-branch --branch dev 'https://github.com/TD22057/insteon-mqtt.git' /opt/insteon-mqtt && \
+    pip install /opt/insteon-mqtt
 
 COPY entrypoint.sh entrypoint.sh
 
