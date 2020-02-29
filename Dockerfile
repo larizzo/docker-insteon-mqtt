@@ -1,12 +1,13 @@
-FROM homeassistant/amd64-homeassistant-base
+FROM python:3.7-slim-buster
 
 VOLUME /config
 
 ENV LANG C.UTF-8
 
-RUN apk --no-cache add python3-dev git && \ 
-    git clone 'https://github.com/TD22057/insteon-mqtt.git' /opt/insteon-mqtt && \
-    pip install /opt/insteon-mqtt
+RUN apt-get update && apt-get install -y git && \ 
+git clone 'https://github.com/TD22057/insteon-mqtt.git' /opt/insteon-mqtt && \
+pip install /opt/insteon-mqtt \
+&& rm -rf /var/lib/apt/lists/*
 
 COPY entrypoint.sh entrypoint.sh
 
