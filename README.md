@@ -16,6 +16,6 @@ docker run -d --name='insteon-mqtt' --net='bridge' -v '/mnt/user/appdata/insteon
 Configure your config file and restart the container, see [insteon-mqtt](https://github.com/TD22057/insteon-mqtt) for how to configure:
 
 ```
-vi /mnt/user/appdata/insteon-mqtt-test/insteon_mqtt.yaml
+vi /mnt/user/appdata/insteon-mqtt/insteon_mqtt.yaml
 docker restart insteon-mqtt
 ```
